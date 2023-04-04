@@ -7,6 +7,7 @@ function App() {
   const [team, setTeam] = useState([]);
   const [member, setMember] = useState({
     membername: "",
+    membersurname: "",
     memberemail: "",
     memberposition: "",
   });
@@ -19,7 +20,9 @@ function App() {
     event.preventDefault();
     setTeam([...team, member]);
   }
-
+  function resetForm() {
+    setMember("");
+  }
   return (
     <div className="App">
       <h1>Fill the Form! Join the Team!</h1>
@@ -27,6 +30,7 @@ function App() {
         member={member}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        resetForm={resetForm}
       />
       <Team team={team} />
     </div>

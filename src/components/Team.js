@@ -4,11 +4,13 @@ export default function (props) {
   const { team } = props;
   return (
     <div className="TeamContainer">
-      {team.map((member) => (
+      <h2>Team Members</h2>
+      {team.map((member, index) => (
         <ul className="TeamContent">
-          <li>{member.membername}</li>
-          <li>{member.membermail}</li>
-          <li>{member.position}</li>
+          <li key="membername">Member Name:{member.membername}</li>
+          <li key="membername">Member Surname:{member.membersurname}</li>
+          <li key="membermail">Member Email:{member.membermail}</li>
+          <li key="memberposition">Member Position:{member.position}</li>
         </ul>
       ))}
     </div>

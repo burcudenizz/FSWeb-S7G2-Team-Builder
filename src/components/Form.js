@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function (props) {
-  const { member, handleChange, handleSubmit } = props;
+  const { member, handleChange, handleSubmit, resetForm } = props;
   return (
     <div className="FormContainer">
       <div className="FormContent">
@@ -17,9 +17,19 @@ export default function (props) {
           </label>
           <br />
           <label>
-            Member Mail:
+            Member Surname:
             <input
               type="text"
+              name="membersurname"
+              value={member.membersurname}
+              onChange={(event) => handleChange(event)}
+            />
+          </label>
+          <br />
+          <label>
+            Member Mail:
+            <input
+              type="mail"
               name="membermail"
               value={member.membermail}
               onChange={(event) => handleChange(event)}
@@ -36,9 +46,16 @@ export default function (props) {
             />
           </label>
           <br />
-          <button>Submit!</button>
+          <div className="buttonContainer">
+            <button type="submit">SUBMIT!</button>
+            <button type="change">CHANGE!</button>
+            <button type="reset" onClick={resetForm}>
+              RESET!
+            </button>
+          </div>
         </form>
       </div>
+      <hr size="3px" color="black" />
     </div>
   );
 }
